@@ -2,21 +2,20 @@
 
 ## **Table of Contents:**
 <sub>
--Overview
- -Objective
- -Key Features
+-Overview:
+    -Objective
+    -Key Features
 -Links
--Process
- -Programming Languages
- -Dependencies
- -Used Resources
+-Process:
+    -Programming Languages
+    -Dependencies
+    -Used Resources
 </sub>
 
 ## **Overview**
 
 ### **Objective:**
-<sub>Doggydex App small web application with HTML, CSS, and JavaScript that loads
-data from an external API and enables the viewing of dog related data points in detail on demand.</sub>
+<sub>Doggydex App small web application with HTML, CSS, and JavaScript that loads data from an external API and enables the viewing of dog related data points in detail on demand.</sub>
 
 ### **Key Features:**
 <sub>
