@@ -1,4 +1,4 @@
-# **JavaScript App: Doggydex**
+# **JavaScript App: Pokédex**
 
 ## **Table of Contents:**
 <sub>
@@ -15,7 +15,7 @@
 ## **Overview**
 
 ### **Objective:**
-<sub>Doggydex App small web application with HTML, CSS, and JavaScript that loads data from an external API and enables the viewing of dog related data points in detail on demand.</sub>
+<sub>Pokédex App small web application with HTML, CSS, and JavaScript that loads data from an external API and enables the viewing of dog related data points in detail on demand.</sub>
 
 ### **Key Features:**
 <sub>

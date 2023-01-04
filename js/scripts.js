@@ -1,5 +1,5 @@
-let dogList  = [
-    {name:'Greyhound', type:'Hound', lifeExpectency: 13 + 'years'},
-    {name:'Labrador Retriever', type:'Sporting', lifeExpectency: 13 + 'years'},
-    {name: 'Great Dane', type:'Working', lifeExpectency: 10 + 'years'}
+let pokemonList  = [
+    {name:'Butterfree', type:['bug', 'flying'], height: 1.1 + 'm'},
+    {name:'Caterpie', type:'Bug', height: 0.3 + 'm'},
+    {name: 'Jigglypuff', type:['Fairy', 'Normal'], height: 0.5 + 'm'}
 ];
