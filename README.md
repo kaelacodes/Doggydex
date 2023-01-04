@@ -1,44 +1,44 @@
-#**JavaScript App: Doggydex**
+# **JavaScript App: Doggydex**
 
-##**Table of Contents**
+## **Table of Contents:**
 <sub>
 -Overview
-    -Objective
-    -Key Features
+ -Objective
+ -Key Features
 -Links
 -Process
-    -Programming Languages
-    -Dependencies
-    -Used Resources
+ -Programming Languages
+ -Dependencies
+ -Used Resources
 </sub>
 
-##**Overview**
+## **Overview**
 
-###**Objective:**
+### **Objective:**
 <sub>Doggydex App small web application with HTML, CSS, and JavaScript that loads
 data from an external API and enables the viewing of dog related data points in detail on demand.</sub>
 
-###**Key Features:**
+### **Key Features:**
 <sub>
 - Loads data from an external source (API)
 - View a list of items
-- On usre interaction (e.g., by clicking on a list item), view details for that item
+- On user interaction (e.g., by clicking on a list item), view details for that item
 </sub>
 
-##**Links**
+## **Links**
 <sub></sub>
 
-##**Process**
+## **Process**
 
-###**Programing Languages**
+### **Programing Languages:**
 <sub>
 -HTML
 -CSS
 -JavaScript ES6
 </sub>
 
-###**Dependencies**
+### **Dependencies:**
 <sub></sub>
 
-###**Used Resources**
+### **Used Resources:**
 <sub></sub>
