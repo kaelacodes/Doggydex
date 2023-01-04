@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: #f6f5f0;
+    --secondary-color: #324943;
+    --tertiary-color: #483b3c;
+    --tertiary-color-lighter: #8d7577;
+    --tertiary-color-lightest: #c7bbbc;
+}
+body {
+    background-color: var(--primary-color);
+    font-family: 'Hind Madurai', sans-serif;
+    line-height: 1.2;
+    color: var(--secondary-color);
+}
+header {
+    padding-top: 25px;
+    padding-bottom: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+main{
+    text-align: left;
+}
+@media all and (max-width: 700px){
+    body {
+      font-size: 14px;
+    }
+    main {
+        padding-left: 25px;
+    }
+  }
+  @media all and (min-width: 700px){
+    body {
+      font-size: 20px;
+    }
+    main {
+        padding-left:50px;
+    }
+  }
