@@ -21,8 +21,12 @@ let pokemonRepository = (function () {
     
     function getAll() {
         return pokemonList;
-      }
+    }
     
+    function showDetails(pokemon) {
+        console.log(pokemon);
+    }
+
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listItem = document.createElement("li");
@@ -31,11 +35,17 @@ let pokemonRepository = (function () {
         itemButton.classList.add("pokemon-button");
         listItem.appendChild(itemButton);
         pokemonList.appendChild(listItem);
+        //added event listener: returns all pokemon info to console when button is clicked
+        itemButton.addEventListener("click", function(event){
+            showDetails(pokemon);
+        });
     }
+
     return {
         add: add,
         getAll: getAll,
-        addListItem: addListItem
+        addListItem: addListItem,
+        showDetails: showDetails,
       };
 })();
 
