@@ -23,9 +23,19 @@ let pokemonRepository = (function () {
         return pokemonList;
       }
     
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listItem = document.createElement("li");
+        let itemButton = document.createElement("button");
+        itemButton.innerText = pokemon.name;
+        itemButton.classList.add("pokemon-button");
+        listItem.appendChild(itemButton);
+        pokemonList.appendChild(listItem);
+    }
     return {
         add: add,
-        getAll: getAll
+        getAll: getAll,
+        addListItem: addListItem
       };
 })();
 
@@ -56,7 +66,7 @@ pokemonList.forEach(function(pokemon) {
 })
 */
 
-// UPDATED: forEach() loop with code cooresponding with IIFE around pokemonList
+/* forEach() loop with code cooresponding with IIFE around pokemonList
 
 pokemonRepository.getAll().forEach(function(pokemon) {
     if (pokemon.height < 0.5) {
@@ -66,6 +76,12 @@ pokemonRepository.getAll().forEach(function(pokemon) {
     } else {
           document.write(pokemon.name + " (height: " + pokemon.height + "m) <br>")
     }
+})
+*/
+
+// UPDATED: forEach() loop - DOM manipulation
+pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
 })
 
 
