@@ -26,6 +26,9 @@ header {
 main{
     text-align: left;
 }
+.pokemon-list {
+    list-style: none;
+}
 .pokemon-button {
     background-color: var(--tertiary-color-lightest);
     box-shadow: 5px 5px 5px var(--tertiary-color-lighter);
