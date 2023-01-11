@@ -1,3 +1,16 @@
+//attempt at writting loading message for task 1.7 bonus task -- doesn't work
+
+/* function showLoadingMessage(){
+    let messageBox = document.querySelector(".message");
+    let loadingMessage = document.createElement("p");
+    loadingMessage.innertext = "Loading Pokemon...please wait...";
+    loadingMessage.classList.add("loading-message");
+    messageBox.appendChild(loadingMessage);
+    showLoadingMessage;
+};
+showLoadingMessage();
+*/
+
 // pokemonRepository uses external API and isvwrapped in IIFE to eliminate code from global use
 
 let pokemonRepository = (function () {
@@ -99,15 +112,3 @@ let pokemonRepository = (function () {
 pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
 })
-
-//attempt at writting loading message for task 1.7 bonus task -- doesn't work
-/*
-function showLoadingMessage(){
-    let pokemonList = document.querySelector(".pokemon-list");
-    let loadingMessage = document.createElement("p");
-    loadingMessage.innertext = "Loading Pokemon...";
-    loadingMessage.classList.add("loading-message");
-    pokemonList.appendChild(loadingMessage);
-};
-showLoadingMessage();
-*/
