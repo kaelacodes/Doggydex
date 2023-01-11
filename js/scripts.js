@@ -1,10 +1,10 @@
-// --UPDATED: Repository using external API--
+// pokemonRepository uses external API and isvwrapped in IIFE to eliminate code from global use
 
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   
-    // function to add pokemon to list via .push()
+// function to add pokemon to list via .push() with conditions 
     function add(item) {
         if (
             typeof item === "object" &&
@@ -18,19 +18,7 @@ let pokemonRepository = (function () {
           }
       }
     
-    // getAll function to return all of the items in the pokemonList array
-    function getAll() {
-        return pokemonList;
-    }
-
-    // function to show details
-    function showDetails(pokemon) {
-        loadDetails(pokemon).then(function () {
-          console.log(pokemon);
-        });
-      }
-
-    // add pokemon to list in <button> format
+// add pokemon to list in <button> format
     function addListItem(item) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listItem = document.createElement("li");
@@ -45,7 +33,7 @@ let pokemonRepository = (function () {
         });
     }
   
-    // function to load pokemon API List
+// function to load pokemon API List
     function loadList() {
       return fetch(apiUrl).then(function (response) {
         return response.json();
@@ -62,28 +50,42 @@ let pokemonRepository = (function () {
       })
     }
 
-    // function to use the detailsUrl to load detailed pokemon data
+// function to use the detailsUrl to load detailed pokemon data
     function loadDetails(item) {
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
           return response.json();
         }).then(function (details) {
-          // Now we add the details to the item
+          // item details
           item.imageUrl = details.sprites.front_default;
           item.height = details.height;
+          item.weight = details.weight
           item.types = details.types;
         }).catch(function (e) {
           console.error(e);
         });
       }
-  
+      
+// getAll function to return all of the items in the pokemonList array
+    function getAll() {
+        return pokemonList;
+    }
+
+// function to show details
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+          console.log(pokemon);
+        });
+      }
+
+// returned data from defined functions
     return {
       add: add,
-      getAll: getAll,
-      showDetails: showDetails,
       addListItem: addListItem,
       loadList: loadList,
       loadDetails: loadDetails,
+      getAll: getAll,
+      showDetails: showDetails
     };
   })();
   
@@ -93,7 +95,7 @@ let pokemonRepository = (function () {
     });
   });
 
-  // UPDATED: forEach() loop - DOM manipulation
+// UPDATED: forEach() loop - DOM manipulation
 pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
 })
