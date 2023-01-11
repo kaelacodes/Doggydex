@@ -41,7 +41,16 @@ main{
     margin: 6px 2px;
     padding: 16px 32px;
     border: none;
-    border-radius: 50%;
+    border-radius: 8px;
+    width: 175px;
+}
+.pokemon-button:hover {
+    background-color: var(--tertiary-color-lighter);
+}
+.pokemon-button:active {
+    background-color: var(--tertiary-color-lighter);
+    box-shadow: 5px 5px 5px var(--tertiary-color);
+    transform: translateY(4px);
 }
 
 /* Responsive Stylings */
