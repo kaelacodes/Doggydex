@@ -1,63 +1,10 @@
-/*  --Original Repository--
-
-let pokemonRepository = (function () {
-    let pokemonList = [
-    {name:"Butterfree", type:["bug", "flying"], height: 1.1},
-    {name:"Caterpie", type:"Bug", height: 0.3},
-    {name: "Jigglypuff", type:["Fairy", "Normal"], height: 0.5}
-    ];
-
-    function add(pokemon) {
-        if (
-            typeof pokemon === "object" &&
-            "name" in pokemon,
-            "type" in pokemon,
-            "height" in pokemon
-        ) {
-            pokemonList.push(pokemon);
-        }
-        else {
-            console.log("pokemon is not correct");
-          }
-      }
-    
-    function getAll() {
-        return pokemonList;
-    }
-    
-    function showDetails(pokemon) {
-        console.log(pokemon);
-    }
-
-    function addListItem(pokemon) {
-        let pokemonList = document.querySelector(".pokemon-list");
-        let listItem = document.createElement("li");
-        let itemButton = document.createElement("button");
-        itemButton.innerText = pokemon.name;
-        itemButton.classList.add("pokemon-button");
-        listItem.appendChild(itemButton);
-        pokemonList.appendChild(listItem);
-        //added event listener: returns all pokemon info to console when button is clicked
-        itemButton.addEventListener("click", function(event){
-            showDetails(pokemon);
-        });
-    }
-
-    return {
-        add: add,
-        getAll: getAll,
-        addListItem: addListItem,
-        showDetails: showDetails,
-      };
-})();
-*/
-
 // --UPDATED: Repository using external API--
 
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   
+    // function to add pokemon to list via .push()
     function add(item) {
         if (
             typeof item === "object" &&
@@ -71,16 +18,19 @@ let pokemonRepository = (function () {
           }
       }
     
+    // getAll function to return all of the items in the pokemonList array
     function getAll() {
         return pokemonList;
     }
 
+    // function to show details
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
           console.log(pokemon);
         });
       }
 
+    // add pokemon to list in <button> format
     function addListItem(item) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listItem = document.createElement("li");
@@ -95,6 +45,7 @@ let pokemonRepository = (function () {
         });
     }
   
+    // function to load pokemon API List
     function loadList() {
       return fetch(apiUrl).then(function (response) {
         return response.json();
@@ -111,6 +62,7 @@ let pokemonRepository = (function () {
       })
     }
 
+    // function to use the detailsUrl to load detailed pokemon data
     function loadDetails(item) {
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
@@ -145,52 +97,3 @@ let pokemonRepository = (function () {
 pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
 })
-
-/* --prints a list pokemon names and their respective heights from pokemonList using for() loop--
-
-for (let i=0; i < pokemonList.length; i++){
-    if (pokemonList[i].height < 0.5){
-        document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - Wow! That's a tiny pokemon! <br>")
-        }
-    else if (pokemonList[i].height > 1.0){
-        document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - Wow! That's a big pokemon! <br>")
-        }
-    else {
-        document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) <br>")
-        }
-    }
-*/
-
-/* --changes previously written for() loop into a forEach() function in order to print pokemonList--
-pokemonList.forEach(function(pokemon) {
-    if (pokemon.height < 0.5) {
-        document.write(pokemon.name + " (height: " + pokemon.height + "m) - Wow! That's a tiny pokemon! <br>")
-    } else if (pokemon.height > 1.0) {
-          document.write(pokemon.name + " (height: " + pokemon.height + "m) - Wow! That's a big pokemon! <br>")
-    } else {
-          document.write(pokemon.name + " (height: " + pokemon.height + "m) <br>")
-    }
-})
-*/
-
-/* forEach() loop with code cooresponding with IIFE around pokemonList
-
-pokemonRepository.getAll().forEach(function(pokemon) {
-    if (pokemon.height < 0.5) {
-        document.write(pokemon.name + " (height: " + pokemon.height + "m) - Wow! That's a tiny pokemon! <br>")
-    } else if (pokemon.height > 1.0) {
-          document.write(pokemon.name + " (height: " + pokemon.height + "m) - Wow! That's a big pokemon! <br>")
-    } else {
-          document.write(pokemon.name + " (height: " + pokemon.height + "m) <br>")
-    }
-})
-*/
-
-
-
-
-
-
-
-
-
