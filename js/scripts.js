@@ -1,3 +1,5 @@
+/*  --Original Repository--
+
 let pokemonRepository = (function () {
     let pokemonList = [
     {name:"Butterfree", type:["bug", "flying"], height: 1.1},
@@ -48,6 +50,94 @@ let pokemonRepository = (function () {
         showDetails: showDetails,
       };
 })();
+*/
+
+let pokemonRepository = (function () {
+    let pokemonList = [];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  
+    function add(item) {
+        if (
+            typeof item === "object" &&
+            "name" in item
+        ) {
+            pokemonList.push(item);
+        }
+        else {
+            console.log("pokemon is not correct");
+          }
+      }
+    
+    function getAll() {
+        return pokemonList;
+    }
+
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+          console.log(pokemon);
+        });
+      }
+
+    function addListItem(item) {
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listItem = document.createElement("li");
+        let itemButton = document.createElement("button");
+        itemButton.innerText = item.name;
+        itemButton.classList.add("pokemon-button");
+        listItem.appendChild(itemButton);
+        pokemonList.appendChild(listItem);
+        //added event listener: returns all pokemon info to console when button is clicked
+        itemButton.addEventListener("click", function(event){
+            showDetails(item);
+        });
+    }
+  
+    function loadList() {
+      return fetch(apiUrl).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        json.results.forEach(function (item) {
+          let pokemon = {
+            name: item.name,
+            detailsUrl: item.url
+          };
+          add(pokemon);
+        });
+      }).catch(function (e) {
+        console.error(e);
+      })
+    }
+
+    function loadDetails(item) {
+        let url = item.detailsUrl;
+        return fetch(url).then(function (response) {
+          return response.json();
+        }).then(function (details) {
+          // Now we add the details to the item
+          item.imageUrl = details.sprites.front_default;
+          item.height = details.height;
+          item.types = details.types;
+        }).catch(function (e) {
+          console.error(e);
+        });
+      }
+  
+    return {
+      add: add,
+      getAll: getAll,
+      showDetails: showDetails,
+      addListItem: addListItem,
+      loadList: loadList,
+      loadDetails: loadDetails,
+    };
+  })();
+  
+  pokemonRepository.loadList().then(function() {
+    // Now the data is loaded!
+    pokemonRepository.getAll().forEach(function(pokemon){
+      pokemonRepository.addListItem(pokemon);
+    });
+  });
 
 /* --prints a list pokemon names and their respective heights from pokemonList using for() loop--
 
