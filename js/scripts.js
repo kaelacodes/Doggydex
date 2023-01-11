@@ -52,6 +52,8 @@ let pokemonRepository = (function () {
 })();
 */
 
+// --UPDATED: Repository using external API--
+
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -59,7 +61,8 @@ let pokemonRepository = (function () {
     function add(item) {
         if (
             typeof item === "object" &&
-            "name" in item
+            "name" in item,
+            "detailsUrl" in item
         ) {
             pokemonList.push(item);
         }
@@ -138,6 +141,11 @@ let pokemonRepository = (function () {
     });
   });
 
+  // UPDATED: forEach() loop - DOM manipulation
+pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+})
+
 /* --prints a list pokemon names and their respective heights from pokemonList using for() loop--
 
 for (let i=0; i < pokemonList.length; i++){
@@ -178,10 +186,6 @@ pokemonRepository.getAll().forEach(function(pokemon) {
 })
 */
 
-// UPDATED: forEach() loop - DOM manipulation
-pokemonRepository.getAll().forEach(function(pokemon) {
-    pokemonRepository.addListItem(pokemon);
-})
 
 
 
