@@ -35,7 +35,7 @@ let pokemonRepository = (function () {
   
 // function to load pokemon API List
     function loadList() {
-      return fetch(apiUrl).then(function (response) {
+        return fetch(apiUrl).then(function (response) {
         return response.json();
       }).then(function (json) {
         json.results.forEach(function (item) {
@@ -99,3 +99,15 @@ let pokemonRepository = (function () {
 pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
 })
+
+//attempt at writting loading message for task 1.7 bonus task -- doesn't work
+/*
+function showLoadingMessage(){
+    let pokemonList = document.querySelector(".pokemon-list");
+    let loadingMessage = document.createElement("p");
+    loadingMessage.innertext = "Loading Pokemon...";
+    loadingMessage.classList.add("loading-message");
+    pokemonList.appendChild(loadingMessage);
+};
+showLoadingMessage();
+*/
