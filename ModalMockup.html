@@ -13,7 +13,20 @@
         <main>
             <div class="message"></div>
             <ul class="pokemon-list"></ul>
-            <div id="modal-container">Pokemon Model</div>
+            <div id="modal-container" class="is-visable">
+                <div class="modal">
+                    <button class="modal-close">Close</button>
+                    <h1 class="modal-title">Pokemon</h1>
+                    <div class="modal-image-block">
+                        <img src="https://placekitten.com/640/360">
+                    </div>
+                    <div class="modal-details-block">
+                        <p>Type:</p>
+                        <p>Height:</p>
+                        <p>Weight:</p>
+                    </div>
+                </div>
+            </div>
             <script src="js/promise-pollyfill.js"></script>
             <script src="js/fetch-pollyfill.js"></script>
             <script src="js/scripts.js"></script>
