@@ -1,17 +1,4 @@
-//attempt at writting loading message for task 1.7 bonus task -- doesn't work
-
-/* function showLoadingMessage(){
-    let messageBox = document.querySelector(".message");
-    let loadingMessage = document.createElement("p");
-    loadingMessage.innertext = "Loading Pokemon...please wait...";
-    loadingMessage.classList.add("loading-message");
-    messageBox.appendChild(loadingMessage);
-    showLoadingMessage;
-};
-showLoadingMessage();
-*/
-
-// pokemonRepository uses external API and isvwrapped in IIFE to eliminate code from global use
+// pokemonRepository uses external API and is wrapped in IIFE to eliminate code from global use
 
 let pokemonRepository = (function () {
     let pokemonList = [];
@@ -30,27 +17,26 @@ let pokemonRepository = (function () {
             console.log("pokemon is not correct");
           }
       }
-    
-// add pokemon to list in <button> format
+
+// add pokemon to list in <button> format   
     function addListItem(item) {
-        let pokemonList = document.querySelector(".pokemon-list");
-        let listItem = document.createElement("li");
-        listItem.classList.add("group-list-item")
-        let itemButton = document.createElement("button");
-        itemButton.innerText = item.name;
-        itemButton.classList.add("pokemon-button");
-        listItem.appendChild(itemButton);
-        pokemonList.appendChild(listItem);
-        //added event listener: returns all pokemon info to console when button is clicked
-        itemButton.addEventListener("click", function(event){
-            showDetails(item);
-        });
+      let pokemonList = $('.pokemon-list');
+      let listItem = $('<li class="group-list-item"></li>');
+      let itemButton= $(`<button type="button" class="pokemon-button btn btn-info" data-target="#pokemon-modal" data-toggle="modal">${item.name}</button>`);
+      
+      listItem.append(itemButton);
+      pokemonList.append(listItem);
+
+      //event listener shows pokemon details when clicked
+      itemButton.on('click', function(){
+        showDetails(item);
+      });
     }
-  
-// function to load pokemon API List
+
+//function to load pokemon API List
     function loadList() {
         return fetch(apiUrl).then(function (response) {
-        return response.json();
+          return response.json();
       }).then(function (json) {
         json.results.forEach(function (item) {
           let pokemon = {
@@ -88,11 +74,32 @@ let pokemonRepository = (function () {
 // function to show details
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-          showModal(pokemon);
+          showDetailsModal(pokemon);
         });
       }
 
-//MODAL
+// -- Modal using jQuery and Bootsrap --
+
+    function showDetailsModal(pokemon){
+      let modalTitle = $('.modal-title');
+      let modalBody = $('.modal-body');
+
+      modalTitle.text(pokemon.name);
+      modalBody.empty();
+ 
+      let image = $('<img class="pokemon-img" src=""' + pokemon.imgUrl + '/>');
+      let type = $('<p>' + 'Types: ' + pokemon.types + '</p');
+      let height = $('<p>' + 'Height: ' + pokemon.height + '</p>');
+      let weight = $('<p>' + 'Weight: ' + pokemon.weight + '</p>');
+
+      modalBody.append(image);
+      modalBody.append(type);
+      modayBody.append(height);
+      modalBody.append(weight);
+
+}
+
+/* --MODAL--vanilla JavaScript--
 
 function showModal(pokemon){
   let modalContainer = document.querySelector("#modal-container");
@@ -194,15 +201,16 @@ window.addEventListener("keydown", (e) => {
     hideModal();
   }
 });
-
+*/
 // returned data from defined functions
     return {
       add: add,
+      getAll: getAll,
       addListItem: addListItem,
       loadList: loadList,
       loadDetails: loadDetails,
-      getAll: getAll,
-      showDetails: showDetails
+      showDetails: showDetails,
+      showDetailsModal: showDetailsModal
     };
   })();
   
