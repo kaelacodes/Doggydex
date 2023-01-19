@@ -11,12 +11,19 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <header>
-            <h1>Pokédex App</h1>
-        </header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><b>P O K É D E X</b></a>
+            <form class="form-inline">    
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>
         <main>
-            <!-- add list-group class to <ul> for Bootstrap -->
-            <ul class="pokemon-list list-group"></ul>
+            <div class="pokedex">
+                <h1 class="pokedex-header">Pokémon Roledex</h1>
+                <!-- add list-group class to <ul> for Bootstrap -->
+                <ul class="pokemon-list list-group"></ul>
+            </div>
             <!-- add Bootstrap modal -->
             <div class="modal fade show" id="pokemon-modal" tabindex="-1" role="dialog" aria-labelledby="pokemon-modal" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
