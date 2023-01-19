@@ -86,13 +86,17 @@ let pokemonRepository = (function () {
 
       modalBody.empty();
       modalTitle.text(pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1));
- 
-      let image = $('<img class="pokemon-img" src="' + pokemon.imageUrl + '"/>');
-      let type = $('<p>' + 'Types: ' + pokemon.types + '</p>');
-      let height = $('<p>' + 'Height: ' + pokemon.height + '</p>');
-      let weight = $('<p>' + 'Weight: ' + pokemon.weight + '</p>');
+      
+      let spacerOne = $('<div class="col-3 spacer-one"></div>');
+      let spacerTwo = $('<div class="col-3 spacer-two"></div>');
+      let image = $('<img class="col-6 pokemon-img" src="' + pokemon.imageUrl + '"/>');
+      let type = $('<p class="col-12 text-center">' + 'Types: ' + pokemon.types + '</p>');
+      let height = $('<p class="col-12 text-center">' + 'Height: ' + pokemon.height + '</p>');
+      let weight = $('<p class= "col-12 text-center">' + 'Weight: ' + pokemon.weight + '</p>');
 
+      modalBody.append(spacerOne);
       modalBody.append(image);
+      modalBody.append(spacerTwo);
       modalBody.append(type);
       modalBody.append(height);
       modalBody.append(weight);
