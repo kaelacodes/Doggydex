@@ -13,15 +13,14 @@
     <body>
         <nav class="navbar fixed-top navbar-collapse navbar-light bg-light">
             <a class="navbar-brand" href="#"><b>P O K É D E X</b></a>
-            <form class="form-inline">    
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <div class="md-form active-cyan-2 mb-3">   
+                <input class="form-control mr-sm-2" type="search" id="search-value" placeholder="Search" aria-label="Search">
+            </div>
         </nav>
         <main>
             <div class="pokedex">
                 <!-- add list-group class to <ul> for Bootstrap -->
-                <ul class="pokemon-list list-group"></ul>
+                <ul class="pokemon-list list-group" id="pokemon-list"></ul>
             </div>
             <!-- add Bootstrap modal -->
             <div class="modal fade show" id="pokemon-modal" tabindex="-1" role="dialog" aria-labelledby="pokemon-modal" aria-hidden="true">

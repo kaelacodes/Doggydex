@@ -97,7 +97,17 @@ let pokemonRepository = (function () {
       modalBody.append(height);
       modalBody.append(weight);
 
-}
+    }
+
+    // filter pokemon list via search input
+    $(document).ready(function(){
+      $('#search-value').on('keyup', function(){
+        var value = $(this).val().toLowerCase();
+        $('#pokemon-list li').filter(function(){
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
 
 // returned data from defined functions
     return {
