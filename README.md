@@ -37,7 +37,15 @@
 </sub>
 
 ### **Dependencies:**
-<sub></sub>
+<sub>
+Polyfills:
+    -[Promise-Polyfill](js/promise-polyfill.js)
+    -[Fetch Polyfill](js/fetch-polyfill.js)
+Frameworks:
+    -[Bootstrap](https://getbootstrap.com/)
+</sub>
 
 ### **Used Resources:**
-<sub></sub>
+<sub>
+-[Pokemon API used for this application](https://pokeapi.co/api/v2/pokemon/?limit=150)
+</sub>
