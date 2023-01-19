@@ -85,7 +85,7 @@ let pokemonRepository = (function () {
       let modalBody = $('.modal-body');
 
       modalBody.empty();
-      modalTitle.text(pokemon.name);
+      modalTitle.text(pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1));
  
       let image = $('<img class="pokemon-img" src="' + pokemon.imageUrl + '"/>');
       let type = $('<p>' + 'Types: ' + pokemon.types + '</p>');
